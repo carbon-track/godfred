@@ -1,0 +1,127 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About Us",
+        "programs": "Programs",
+        "gallery": "Gallery",
+        "impact": "Impact",
+        "learnings": "Learnings / Challenges",
+        "getInvolved": "Get Involved",
+        "contact": "Contact"
+    },
+    "footer": {
+        "rights": "© 2025 Sustainable Green Future Foundation (SGFF). All rights reserved."
+    },
+    "home": {
+        "hero": {
+            "title": "Sustainable Green Future Foundation",
+            "subtitle": "Empowering youth and communities for a sustainable tomorrow."
+        },
+        "intro": {
+            "title": "Who We Are",
+            "text": "SGFF is dedicated to environmental and climate education, empowering the next generation to build resilient, environmentally harmonious communities."
+        },
+        "highlights": [
+            {
+                "title": "Youth Empowerment",
+                "description": "Building leaders for climate action and sustainability."
+            },
+            {
+                "title": "Climate Education",
+                "description": "Educating communities on environmental stewardship."
+            },
+            {
+                "title": "Circular Economy",
+                "description": "Promoting waste reduction and sustainable resources."
+            },
+            {
+                "title": "Community Engagement",
+                "description": "Working together for a greener future."
+            }
+        ]
+    },
+    "about": {
+        "title": "About The Foundation",
+        "story": {
+            "title": "Our Story",
+            "content": "Founded in early 2023 by Mr. Godfred Owusu, with support from Mr. Francis Amoako, Mr. Felix Owusu, and Mr. Jeff Addo Donkor. Initially starting as the 'Youth Planner and Environment Association–KNUST', the organization collaborated with Dr. Stephen Takyi under the Ghana Association of Student Planners. It transitioned to the 'Sustainable Green Future Club' before officially registering in mid-2025 as a national non-profit: Sustainable Green Future Foundation (SGFF)."
+        },
+        "mission": {
+            "title": "Mission",
+            "content": "To empower young people and communities for climate action, promote circular economy principles, encourage waste reduction, and build resilient, environmentally harmonious communities."
+        },
+        "vision": {
+            "title": "Vision",
+            "content": "A world where communities and emerging leaders actively promote environmental sustainability, achieving harmony between humanity and the environment."
+        }
+    },
+    "programs": {
+        "title": "Our Programs",
+        "items": [
+            {
+                "title": "Environmental & Climate Education",
+                "description": "Comprehensive education initiatives designed to raise awareness about climate change and environmental protection."
+            },
+            {
+                "title": "Youth Empowerment & Leadership",
+                "description": "Training programs to develop the next generation of environmental leaders and advocates."
+            },
+            {
+                "title": "Circular Economy Awareness",
+                "description": "Workshops and campaigns focusing on the principles of a circular economy to reduce waste."
+            },
+            {
+                "title": "Community Sustainability Advocacy",
+                "description": "Grassroots advocacy to implement sustainable practices at the local community level."
+            },
+            {
+                "title": "Waste Reduction Initiatives",
+                "description": "Practical projects aimed at responsible waste management and environmental responsibility."
+            }
+        ]
+    },
+    "impact": {
+        "title": "Our Impact",
+        "content": "SGFF has made significant strides in education and awareness. By engaging youth and communities, we are driving a cultural shift towards sustainability. Following our registration as a national non-profit, our scope has expanded to influence environmental practices across Ghana, fostering a generation that is conscious of their ecological footprint."
+    },
+    "learnings": {
+        "title": "Challenges & Learnings",
+        "challenges": {
+            "title": "Challenges Faced",
+            "items": [
+                "Limited resources during early phases.",
+                "Navigating organizational transitions and restructuring.",
+                "Scaling activities effectively during the registration process."
+            ]
+        },
+        "keyLearnings": {
+            "title": "Key Learnings",
+            "items": [
+                "Collaboration is essential for meaningful impact.",
+                "Youth are powerful drivers of environmental change.",
+                "Institutional support is crucial for strengthening sustainability efforts."
+            ]
+        }
+    },
+    "getInvolved": {
+        "title": "Get Involved",
+        "content": "We invite individuals and organizations to join us in our mission. While we are currently in an informational phase, future opportunities will include volunteering, strategic partnerships, and sponsorship. Your support is vital to building a sustainable green future.",
+        "cta": "Stay tuned for upcoming opportunities to contribute."
+    },
+    "contact": {
+        "title": "Contact Us",
+        "email": "Info.susgreenfoundation@gmail.com",
+        "phone": [
+            "+233 593 788 288",
+            "+233 504 206 028"
+        ],
+        "address": {
+            "lines": [
+                "Digital Address: AK-516-0282",
+                "Mbabane St",
+                "Pankrono Adabraka",
+                "Kumasi, Ghana"
+            ]
+        }
+    }
+}
