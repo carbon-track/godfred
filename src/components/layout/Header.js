@@ -35,7 +35,7 @@ export default function Header() {
                         <li><Link href="/learnings" className="text-gray-600 hover:text-primary transition-colors">{nav.learnings}</Link></li>
                         <li><Link href="/get-involved" className="text-gray-600 hover:text-primary transition-colors">{nav.getInvolved}</Link></li>
                         <li>
-                            <Link href="/contact" className="rounded-full bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-primary transition-colors">
+                            <Link href="/contact" className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover transition-colors">
                                 {nav.contact}
                             </Link>
                         </li>
