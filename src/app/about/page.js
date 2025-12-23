@@ -18,9 +18,9 @@ export default function About() {
                 </div>
             </Section>
 
-            <Section title={about.vision.title} className="bg-gray-900 text-white">
+            <Section title={about.vision.title} className="bg-gray-900 !text-white">
                 <div className="mx-auto max-w-3xl text-center">
-                    <p className="text-xl font-medium leading-9 text-gray-100">{about.vision.content}</p>
+                    <p className="text-xl font-medium leading-9 text-gray-50">{about.vision.content}</p>
                 </div>
             </Section>
 
