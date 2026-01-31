@@ -3,23 +3,43 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import content from '@/content/en.json';
+
+const NAV_LINKS = [
+    { href: '/', key: 'home' },
+    { href: '/about', key: 'about' },
+    { href: '/programs', key: 'programs' },
+    { href: '/gallery', key: 'gallery' },
+    { href: '/impact', key: 'impact' },
+    { href: '/learnings', key: 'learnings' },
+    { href: '/get-involved', key: 'getInvolved' },
+];
 
 export default function Header() {
     const { nav } = content;
+    const pathname = usePathname();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         setMounted(true);
     }, []);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
+    const isActive = (href) => {
+        if (href === '/') return pathname === '/';
+        return pathname === href || pathname?.startsWith(href + '/');
+    };
+
     return (
         <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/60">
             <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
                 <div className="flex items-center">
-                    <Link href="/" className="text-xl font-bold tracking-tight text-gray-900 hover:text-primary transition-colors flex items-center gap-2">
+                    <Link href="/" className="text-2xl font-bold tracking-tight text-gray-900 hover:text-primary transition-colors flex items-center gap-2" title="Sustainable Green Future Foundation">
                         SGFF
                     </Link>
                 </div>
@@ -27,15 +47,27 @@ export default function Header() {
                 {/* Desktop Nav */}
                 <nav className="hidden md:block">
                     <ul className="flex items-center gap-8 text-sm font-medium">
-                        <li><Link href="/" className="text-gray-600 hover:text-primary transition-colors">{nav.home}</Link></li>
-                        <li><Link href="/about" className="text-gray-600 hover:text-primary transition-colors">{nav.about}</Link></li>
-                        <li><Link href="/programs" className="text-gray-600 hover:text-primary transition-colors">{nav.programs}</Link></li>
-                        <li><Link href="/gallery" className="text-gray-600 hover:text-primary transition-colors">{nav.gallery}</Link></li>
-                        <li><Link href="/impact" className="text-gray-600 hover:text-primary transition-colors">{nav.impact}</Link></li>
-                        <li><Link href="/learnings" className="text-gray-600 hover:text-primary transition-colors">{nav.learnings}</Link></li>
-                        <li><Link href="/get-involved" className="text-gray-600 hover:text-primary transition-colors">{nav.getInvolved}</Link></li>
+                        {NAV_LINKS.map(({ href, key }) => (
+                            <li key={key}>
+                                <Link
+                                    href={href}
+                                    className={`transition-colors ${isActive(href)
+                                        ? 'font-bold text-gray-900'
+                                        : 'text-gray-600 hover:text-primary'
+                                        }`}
+                                >
+                                    {nav[key]}
+                                </Link>
+                            </li>
+                        ))}
                         <li>
-                            <Link href="/contact" className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover transition-colors">
+                            <Link
+                                href="/contact"
+                                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${isActive('/contact')
+                                    ? 'bg-primary-hover text-white ring-2 ring-primary ring-offset-2'
+                                    : 'bg-primary text-white hover:bg-primary-hover'
+                                    }`}
+                            >
                                 {nav.contact}
                             </Link>
                         </li>
@@ -76,7 +108,7 @@ export default function Header() {
                         className={`fixed inset-y-0 right-0 z-[100] w-5/6 max-w-xs overflow-y-auto bg-white px-6 py-6 shadow-2xl ring-1 ring-gray-900/10 border-l border-gray-100 transition-transform duration-300 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
                     >
                         <div className="flex items-center justify-between">
-                            <Link href="/" className="-m-1.5 p-1.5 text-xl font-bold tracking-tight text-gray-900 hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                            <Link href="/" className="-m-1.5 p-1.5 text-2xl font-bold tracking-tight text-gray-900 hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)} title="Sustainable Green Future Foundation">
                                 SGFF
                             </Link>
                             <button
@@ -93,16 +125,25 @@ export default function Header() {
                         <div className="mt-6 flow-root">
                             <div className="-my-6 divide-y divide-gray-100">
                                 <div className="space-y-2 py-6">
-                                    <Link href="/" onClick={() => setMobileMenuOpen(false)} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-primary transition-colors">{nav.home}</Link>
-                                    <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-primary transition-colors">{nav.about}</Link>
-                                    <Link href="/programs" onClick={() => setMobileMenuOpen(false)} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-primary transition-colors">{nav.programs}</Link>
-                                    <Link href="/gallery" onClick={() => setMobileMenuOpen(false)} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-primary transition-colors">{nav.gallery}</Link>
-                                    <Link href="/impact" onClick={() => setMobileMenuOpen(false)} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-primary transition-colors">{nav.impact}</Link>
-                                    <Link href="/learnings" onClick={() => setMobileMenuOpen(false)} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-primary transition-colors">{nav.learnings}</Link>
-                                    <Link href="/get-involved" onClick={() => setMobileMenuOpen(false)} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-primary transition-colors">{nav.getInvolved}</Link>
+                                    {NAV_LINKS.map(({ href, key }) => (
+                                        <Link
+                                            key={key}
+                                            href={href}
+                                            onClick={() => setMobileMenuOpen(false)}
+                                            className={`-mx-3 block rounded-lg px-3 py-2 text-base leading-7 transition-colors hover:bg-gray-50 hover:text-primary ${isActive(href) ? 'font-bold text-primary' : 'font-semibold text-gray-900'}`}
+                                        >
+                                            {nav[key]}
+                                        </Link>
+                                    ))}
                                 </div>
                                 <div className="py-6">
-                                    <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-primary transition-colors">{nav.contact}</Link>
+                                    <Link
+                                        href="/contact"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className={`-mx-3 block rounded-lg px-3 py-2.5 text-base leading-7 transition-colors hover:bg-gray-50 ${isActive('/contact') ? 'font-bold text-primary' : 'font-semibold text-gray-900'}`}
+                                    >
+                                        {nav.contact}
+                                    </Link>
                                 </div>
                             </div>
                         </div>
