@@ -19,13 +19,15 @@ export default function EmailWithCopy({ email, label = 'Email' }) {
     return (
         <div className="flex flex-col items-center rounded-2xl bg-gray-50 p-10 text-center hover:bg-gray-100 transition-colors">
             <h3 className="mb-4 text-lg font-semibold text-black">{label}</h3>
-            <div className="flex flex-wrap items-center justify-center gap-2">
-                <a
-                    href={`mailto:${email}`}
-                    className="text-primary hover:text-primary-hover transition-colors font-medium break-all"
-                >
-                    {email}
-                </a>
+            <div className="flex flex-col items-center gap-3 w-full min-w-0">
+                <span className="min-w-0 overflow-x-auto overflow-y-hidden text-center [scrollbar-width:thin]">
+                    <a
+                        href={`mailto:${email}`}
+                        className="text-sm text-primary hover:text-primary-hover transition-colors font-medium whitespace-nowrap"
+                    >
+                        {email}
+                    </a>
+                </span>
                 <button
                     type="button"
                     onClick={handleCopy}
