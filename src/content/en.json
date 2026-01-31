@@ -112,16 +112,15 @@
         "title": "Contact Us",
         "email": "Info.susgreenfoundation@gmail.com",
         "phone": [
-            "+233 593 788 288",
-            "+233 504 206 028"
+            "+233 (59) 378-8288",
+            "+233 (50) 420-6028"
         ],
         "address": {
-            "lines": [
-                "Digital Address: AK-516-0282",
-                "Mbabane St",
-                "Pankrono Adabraka",
-                "Kumasi, Ghana"
-            ]
+            "digitalAddress": "AK-516-0282",
+            "street": "Mbabane St",
+            "area": "Pankrono Adabraka",
+            "city": "Kumasi",
+            "country": "Ghana"
         }
     }
 }
