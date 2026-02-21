@@ -1,6 +1,7 @@
 import './globals.css';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
+import PageTransition from '../components/layout/PageTransition';
 
 export const metadata = {
   title: 'Sustainable Green Future Foundation (SGFF)',
@@ -12,7 +13,9 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body className="font-sans antialiased bg-white text-black min-h-screen flex flex-col" suppressHydrationWarning={true}>
         <Header />
-        <main className="flex-grow flex flex-col">{children}</main>
+        <main className="flex-grow flex flex-col">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
       </body>
     </html>

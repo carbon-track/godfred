@@ -1,7 +1,38 @@
 
+'use client';
+
+import { useEffect, useState } from 'react';
+import mediaItems from '@/content/media.json';
 import { ButtonLink, Surface } from './elements';
 
+const FALLBACK_HERO_IMAGE = {
+    src: '/media/photo_2025-04-10_05-20-44.jpg',
+    alt: 'Sustainability in action',
+};
+
+const HERO_IMAGES = mediaItems.filter(
+    (item) => item?.type === 'image' && typeof item?.src === 'string' && item.src.length > 0,
+);
+
+function pickRandomHeroImage() {
+    if (HERO_IMAGES.length === 0) return FALLBACK_HERO_IMAGE;
+    const index = Math.floor(Math.random() * HERO_IMAGES.length);
+    return HERO_IMAGES[index];
+}
+
 export default function Hero({ title, subtitle }) {
+    const [heroImage, setHeroImage] = useState(FALLBACK_HERO_IMAGE);
+
+    useEffect(() => {
+        const frame = window.requestAnimationFrame(() => {
+            setHeroImage(pickRandomHeroImage());
+        });
+
+        return () => {
+            window.cancelAnimationFrame(frame);
+        };
+    }, []);
+
     return (
         <section className="relative overflow-hidden bg-gradient-soft pt-16 pb-24 lg:pt-28 lg:pb-32">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.18),transparent_45%)]" />
@@ -34,8 +65,8 @@ export default function Hero({ title, subtitle }) {
                             className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100 shadow-2xl ring-1 ring-gray-900/10 sm:aspect-[3/2] lg:aspect-[4/3]"
                         >
                             <img
-                                src="/media/photo_2025-04-10_05-20-44.jpg"
-                                alt="Sustainability in action"
+                                src={heroImage.src}
+                                alt={heroImage.alt || FALLBACK_HERO_IMAGE.alt}
                                 className="absolute inset-0 h-full w-full object-cover"
                             />
                             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/40 to-transparent p-6">
