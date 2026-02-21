@@ -12,6 +12,7 @@ export default function Impact() {
             <Hero
                 title={impact.title}
                 subtitle="Making a tangible difference"
+                hideCtas
             />
 
             <Section>
@@ -19,6 +20,7 @@ export default function Impact() {
                     <p className="text-xl leading-9 text-gray-700">{impact.content}</p>
                 </div>
 
+                {/* Metrics: replaced unverified numbers. Backup: Awareness events 75+, Youth leaders trained 300+, Volunteer hours 2,400+ */}
                 <CardGrid columns="three" className="mx-auto mt-12 max-w-5xl gap-5">
                     {impact.metrics.map((metric) => (
                         <MetricCard key={metric.label} value={metric.value} label={metric.label} />

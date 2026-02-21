@@ -5,7 +5,7 @@
         "programs": "Programs",
         "gallery": "Gallery",
         "impact": "Impact",
-        "learnings": "Learnings / Challenges",
+        "learnings": "Challenges & Learnings",
         "getInvolved": "Get Involved",
         "contact": "Contact"
     },
@@ -40,22 +40,28 @@
                 "description": "Working together for a greener future."
             }
         ],
+        "_stats_backup_unverified": [
+            { "label": "Community Sessions", "value": "40+" },
+            { "label": "Youth Participants", "value": "1,200+" },
+            { "label": "Partner Institutions", "value": "18" },
+            { "label": "Cities Reached", "value": "12" }
+        ],
         "stats": [
             {
-                "label": "Community Sessions",
-                "value": "40+"
+                "label": "Founded",
+                "value": "2023"
             },
             {
-                "label": "Youth Participants",
-                "value": "1,200+"
+                "label": "Nationally Registered",
+                "value": "2025"
             },
             {
-                "label": "Partner Institutions",
-                "value": "18"
+                "label": "Core Pillars",
+                "value": "4"
             },
             {
-                "label": "Cities Reached",
-                "value": "12"
+                "label": "Program Areas",
+                "value": "5"
             }
         ],
         "focus": [
@@ -66,7 +72,7 @@
         "featured": {
             "title": "What is happening now",
             "items": [
-                "Monthly school eco-club coaching sessions.",
+                "School eco-activity coaching sessions.",
                 "Neighborhood clean-up and waste sorting drives.",
                 "Mentorship for young climate advocates and volunteers."
             ]
@@ -76,15 +82,15 @@
         "title": "About The Foundation",
         "story": {
             "title": "Our Story",
-            "content": "Founded in early 2023 by Mr. Godfred Owusu, with support from Mr. Francis Amoako, Mr. Felix Owusu, and Mr. Jeff Addo Donkor. Initially starting as the 'Youth Planner and Environment Association–KNUST', the organization collaborated with Dr. Stephen Takyi under the Ghana Association of Student Planners. It transitioned to the 'Sustainable Green Future Club' before officially registering in mid-2025 as a national non-profit: Sustainable Green Future Foundation (SGFF)."
+            "content": "Founded in early 2023 by Mr. Godfred Owusu, with support from Mr. Francis Amoako, Mr. Felix Owusu, and Mr. Jeff Addo Donkor. Initially starting as the 'Youth Planner and Environment Association–KNUST', the organization collaborated with Dr. Stephen Takyi under the Ghana Association of Student Planners (GASP). It transitioned to the 'Sustainable Green Future Club' before officially registering in mid-2025 as a national non-profit: Sustainable Green Future Foundation (SGFF)."
         },
         "mission": {
             "title": "Mission",
-            "content": "To empower young people and communities for climate action, promote circular economy principles, encourage waste reduction, and build resilient, environmentally harmonious communities."
+            "content": "Our mission is to empower young people and communities to become proactive advocates for climate action and environmental sustainability. We strive to inspire and equip individuals with the knowledge, tools, and resources necessary to embrace the principles of the circular economy, fostering innovative solutions that promote resource conservation, waste reduction, and sustainable practices. We aim to create a resilient future where communities thrive in harmony with the environment."
         },
         "vision": {
             "title": "Vision",
-            "content": "A world where communities and emerging leaders actively promote environmental sustainability, achieving harmony between humanity and the environment."
+            "content": "To foster a world where engaged communities and emerging leaders are empowered to promote environmental sustainability, achieving a harmonious relationship between humanity and the environment."
         },
         "values": [
             {
@@ -135,18 +141,23 @@
     "impact": {
         "title": "Our Impact",
         "content": "SGFF has made significant strides in education and awareness. By engaging youth and communities, we are driving a cultural shift towards sustainability. Following our registration as a national non-profit, our scope has expanded to influence environmental practices across Ghana, fostering a generation that is conscious of their ecological footprint.",
+        "_metrics_backup_unverified": [
+            { "label": "Awareness events", "value": "75+" },
+            { "label": "Youth leaders trained", "value": "300+" },
+            { "label": "Volunteer hours", "value": "2,400+" }
+        ],
         "metrics": [
             {
-                "label": "Awareness events",
-                "value": "75+"
+                "label": "Active Since",
+                "value": "2023"
             },
             {
-                "label": "Youth leaders trained",
-                "value": "300+"
+                "label": "Program Areas",
+                "value": "5"
             },
             {
-                "label": "Volunteer hours",
-                "value": "2,400+"
+                "label": "Geographic Scope",
+                "value": "National"
             }
         ],
         "stories": [

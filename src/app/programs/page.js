@@ -12,6 +12,7 @@ export default function Programs() {
             <Hero
                 title={programs.title}
                 subtitle="Empowering through action and education"
+                hideCtas
             />
 
             <Section subtitle="Each program is designed to build practical skills, local ownership, and long-term sustainability.">

@@ -2,6 +2,7 @@ import './globals.css';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import PageTransition from '../components/layout/PageTransition';
+import BackToTop from '../components/ui/BackToTop';
 
 export const metadata = {
   title: 'Sustainable Green Future Foundation (SGFF)',
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );
