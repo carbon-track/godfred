@@ -3,7 +3,8 @@ import Hero from '@/components/ui/Hero';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import Carousel from '@/components/ui/Carousel';
-import { ActionCard, CardGrid, MetricCard } from '@/components/ui/elements';
+import { ActionCard, CardGrid } from '@/components/ui/elements';
+import { AnimatedMetricCard } from '@/components/ui/AnimatedMetricCard';
 import content from '@/content/en.json';
 import mediaItems from '@/content/media.json';
 
@@ -35,8 +36,13 @@ export default function Home() {
       {/* Stats: replaced unverified numbers with verifiable facts. Backup: Community Sessions 40+, Youth Participants 1,200+, Partner Institutions 18, Cities Reached 12 */}
       <Section className="pt-0">
         <CardGrid columns="four" className="gap-4">
-          {home.stats.map((item) => (
-            <MetricCard key={item.label} value={item.value} label={item.label} />
+          {home.stats.map((item, index) => (
+            <AnimatedMetricCard
+              key={item.label}
+              value={item.value}
+              label={item.label}
+              delay={index * 100}
+            />
           ))}
         </CardGrid>
       </Section>
