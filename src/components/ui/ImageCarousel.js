@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import { Surface } from './elements';
 
 const images = [
     '/media/photo_2025-04-10_05-20-44.jpg',
@@ -21,7 +22,11 @@ export default function ImageCarousel() {
     }, []);
 
     return (
-        <section className="relative w-full h-[600px] overflow-hidden bg-gray-900">
+        <Surface
+            variant="contrast"
+            padding="none"
+            className="relative h-[600px] w-full overflow-hidden rounded-none border-x-0 border-t-0"
+        >
             {images.map((src, index) => (
                 <div
                     key={index}
@@ -55,6 +60,6 @@ export default function ImageCarousel() {
                     />
                 ))}
             </div>
-        </section>
+        </Surface>
     );
 }

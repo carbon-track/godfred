@@ -1,6 +1,7 @@
 import Hero from '@/components/ui/Hero';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
+import { ActionCard, CardGrid } from '@/components/ui/elements';
 import content from '@/content/en.json';
 
 export default function Programs() {
@@ -13,16 +14,29 @@ export default function Programs() {
                 subtitle="Empowering through action and education"
             />
 
-            <Section>
-                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    {programs.items.map((item, index) => (
+            <Section subtitle="Each program is designed to build practical skills, local ownership, and long-term sustainability.">
+                <CardGrid columns="three" className="gap-8">
+                    {programs.items.map((item) => (
                         <Card
-                            key={index}
+                            key={item.title}
+                            size="sm"
                             title={item.title}
                             description={item.description}
+                            footer={
+                                <><span className="font-semibold text-gray-900">Outcome: </span>{item.outcome}</>
+                            }
                         />
                     ))}
-                </div>
+                </CardGrid>
+
+                <ActionCard
+                    className="mt-14"
+                    variant="default"
+                    title="Partner With SGFF"
+                    description={programs.cta}
+                    actionHref="/contact"
+                    actionLabel="Start a Conversation"
+                />
             </Section>
         </>
     );

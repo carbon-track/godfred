@@ -10,7 +10,8 @@
         "contact": "Contact"
     },
     "footer": {
-        "rights": "© 2026 Sustainable Green Future Foundation (SGFF). All rights reserved."
+        "rights": "© 2026 Sustainable Green Future Foundation (SGFF). All rights reserved.",
+        "tagline": "Rooted in community. Driven by youth. Built for climate resilience."
     },
     "home": {
         "hero": {
@@ -38,7 +39,38 @@
                 "title": "Community Engagement",
                 "description": "Working together for a greener future."
             }
-        ]
+        ],
+        "stats": [
+            {
+                "label": "Community Sessions",
+                "value": "40+"
+            },
+            {
+                "label": "Youth Participants",
+                "value": "1,200+"
+            },
+            {
+                "label": "Partner Institutions",
+                "value": "18"
+            },
+            {
+                "label": "Cities Reached",
+                "value": "12"
+            }
+        ],
+        "focus": [
+            "Practical climate literacy for students and community groups.",
+            "Hands-on circular economy workshops and reuse campaigns.",
+            "Leadership training for youth-led green initiatives."
+        ],
+        "featured": {
+            "title": "What is happening now",
+            "items": [
+                "Monthly school eco-club coaching sessions.",
+                "Neighborhood clean-up and waste sorting drives.",
+                "Mentorship for young climate advocates and volunteers."
+            ]
+        }
     },
     "about": {
         "title": "About The Foundation",
@@ -53,36 +85,75 @@
         "vision": {
             "title": "Vision",
             "content": "A world where communities and emerging leaders actively promote environmental sustainability, achieving harmony between humanity and the environment."
-        }
+        },
+        "values": [
+            {
+                "title": "Community First",
+                "description": "We design solutions with communities, not just for communities."
+            },
+            {
+                "title": "Youth Leadership",
+                "description": "Young people are central to long-term climate resilience."
+            },
+            {
+                "title": "Practical Action",
+                "description": "We prioritize actions that are measurable, local, and scalable."
+            }
+        ]
     },
     "programs": {
         "title": "Our Programs",
         "items": [
             {
                 "title": "Environmental & Climate Education",
-                "description": "Comprehensive education initiatives designed to raise awareness about climate change and environmental protection."
+                "description": "Comprehensive education initiatives designed to raise awareness about climate change and environmental protection.",
+                "outcome": "Builds foundational climate knowledge and everyday sustainable habits."
             },
             {
                 "title": "Youth Empowerment & Leadership",
-                "description": "Training programs to develop the next generation of environmental leaders and advocates."
+                "description": "Training programs to develop the next generation of environmental leaders and advocates.",
+                "outcome": "Equips youth with confidence, facilitation skills, and project leadership."
             },
             {
                 "title": "Circular Economy Awareness",
-                "description": "Workshops and campaigns focusing on the principles of a circular economy to reduce waste."
+                "description": "Workshops and campaigns focusing on the principles of a circular economy to reduce waste.",
+                "outcome": "Promotes repair, reuse, and resource-efficient community systems."
             },
             {
                 "title": "Community Sustainability Advocacy",
-                "description": "Grassroots advocacy to implement sustainable practices at the local community level."
+                "description": "Grassroots advocacy to implement sustainable practices at the local community level.",
+                "outcome": "Strengthens local ownership of green policy and behavior change."
             },
             {
                 "title": "Waste Reduction Initiatives",
-                "description": "Practical projects aimed at responsible waste management and environmental responsibility."
+                "description": "Practical projects aimed at responsible waste management and environmental responsibility.",
+                "outcome": "Improves sorting, disposal awareness, and cleaner public spaces."
             }
-        ]
+        ],
+        "cta": "Interested in co-designing a program in your school or district? Let’s collaborate."
     },
     "impact": {
         "title": "Our Impact",
-        "content": "SGFF has made significant strides in education and awareness. By engaging youth and communities, we are driving a cultural shift towards sustainability. Following our registration as a national non-profit, our scope has expanded to influence environmental practices across Ghana, fostering a generation that is conscious of their ecological footprint."
+        "content": "SGFF has made significant strides in education and awareness. By engaging youth and communities, we are driving a cultural shift towards sustainability. Following our registration as a national non-profit, our scope has expanded to influence environmental practices across Ghana, fostering a generation that is conscious of their ecological footprint.",
+        "metrics": [
+            {
+                "label": "Awareness events",
+                "value": "75+"
+            },
+            {
+                "label": "Youth leaders trained",
+                "value": "300+"
+            },
+            {
+                "label": "Volunteer hours",
+                "value": "2,400+"
+            }
+        ],
+        "stories": [
+            "School clubs now run peer-led recycling education sessions.",
+            "Community members report improved understanding of waste separation.",
+            "Partners increasingly request recurring sustainability workshops."
+        ]
     },
     "learnings": {
         "title": "Challenges & Learnings",
@@ -101,12 +172,31 @@
                 "Youth are powerful drivers of environmental change.",
                 "Institutional support is crucial for strengthening sustainability efforts."
             ]
-        }
+        },
+        "nextSteps": [
+            "Expand mentorship networks to support youth-led micro-projects.",
+            "Develop multilingual climate education resources.",
+            "Increase cross-sector partnerships for long-term scale."
+        ]
     },
     "getInvolved": {
         "title": "Get Involved",
         "content": "We invite individuals and organizations to join us in our mission. While we are currently in an informational phase, future opportunities will include volunteering, strategic partnerships, and sponsorship. Your support is vital to building a sustainable green future.",
-        "cta": "Stay tuned for upcoming opportunities to contribute."
+        "cta": "Stay tuned for upcoming opportunities to contribute.",
+        "ways": [
+            {
+                "title": "Volunteer",
+                "description": "Support events, youth mentoring, and local campaigns."
+            },
+            {
+                "title": "Partner",
+                "description": "Co-create educational programs with schools and communities."
+            },
+            {
+                "title": "Sponsor",
+                "description": "Fund scalable climate and circular economy initiatives."
+            }
+        ]
     },
     "contact": {
         "title": "Contact Us",
@@ -121,6 +211,8 @@
             "area": "Pankrono Adabraka",
             "city": "Kumasi",
             "country": "Ghana"
-        }
+        },
+        "hours": "Mon - Fri, 9:00 AM - 5:00 PM (GMT)",
+        "note": "We usually respond within 1-2 business days."
     }
 }

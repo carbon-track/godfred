@@ -1,5 +1,7 @@
 import Hero from '@/components/ui/Hero';
 import Section from '@/components/ui/Section';
+import Card from '@/components/ui/Card';
+import { CardGrid } from '@/components/ui/elements';
 import content from '@/content/en.json';
 
 export default function About() {
@@ -13,21 +15,44 @@ export default function About() {
             />
 
             <Section title={about.mission.title}>
-                <div className="mx-auto max-w-3xl rounded-2xl bg-gray-50 p-8 sm:p-12">
-                    <p className="text-lg leading-8 text-gray-700">{about.mission.content}</p>
-                </div>
+                <Card
+                    size="md"
+                    className="mx-auto max-w-3xl h-auto"
+                    description={about.mission.content}
+                    descriptionClassName="text-gray-700"
+                />
             </Section>
 
-            <Section title={about.vision.title} className="bg-gray-900 !text-white">
-                <div className="mx-auto max-w-3xl text-center">
-                    <p className="text-xl font-medium leading-9 text-gray-50">{about.vision.content}</p>
-                </div>
+            <Section title={about.vision.title}>
+                <Card
+                    size="md"
+                    className="mx-auto max-w-3xl h-auto"
+                    align="center"
+                    description={about.vision.content}
+                    descriptionClassName="font-medium text-gray-700"
+                />
+            </Section>
+
+            <Section title="Our Values" subtitle="The principles that guide every partnership and program.">
+                <CardGrid columns="three">
+                    {about.values.map((value) => (
+                        <Card
+                            key={value.title}
+                            size="sm"
+                            title={value.title}
+                            description={value.description}
+                        />
+                    ))}
+                </CardGrid>
             </Section>
 
             <Section title={about.story.title}>
-                <div className="mx-auto max-w-3xl prose prose-lg prose-gray text-gray-600">
-                    <p className="leading-8">{about.story.content}</p>
-                </div>
+                <Card
+                    size="md"
+                    className="mx-auto max-w-3xl h-auto"
+                    description={about.story.content}
+                    descriptionClassName="text-gray-600"
+                />
             </Section>
         </>
     );

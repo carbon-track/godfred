@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import Card from './Card';
+import { Button } from './elements';
 
 export default function EmailWithCopy({ email, label = 'Email' }) {
     const [copied, setCopied] = useState(false);
@@ -17,8 +19,7 @@ export default function EmailWithCopy({ email, label = 'Email' }) {
     }, [email]);
 
     return (
-        <div className="flex flex-col items-center rounded-2xl bg-gray-50 p-10 text-center hover:bg-gray-100 transition-colors">
-            <h3 className="mb-4 text-lg font-semibold text-black">{label}</h3>
+        <Card size="sm" title={label} align="center" className="h-full">
             <div className="flex flex-col items-center gap-3 w-full min-w-0">
                 <span className="min-w-0 overflow-x-auto overflow-y-hidden text-center [scrollbar-width:thin]">
                     <a
@@ -28,11 +29,10 @@ export default function EmailWithCopy({ email, label = 'Email' }) {
                         {email}
                     </a>
                 </span>
-                <button
-                    type="button"
+                <Button
                     onClick={handleCopy}
                     aria-label="Copy email"
-                    className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium bg-primary text-white hover:bg-primary-hover transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    className="gap-1.5 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                 >
                     {copied ? (
                         <>
@@ -49,8 +49,8 @@ export default function EmailWithCopy({ email, label = 'Email' }) {
                             Copy
                         </>
                     )}
-                </button>
+                </Button>
             </div>
-        </div>
+        </Card>
     );
 }

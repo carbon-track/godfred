@@ -11,7 +11,7 @@ export default function Gallery() {
                 subtitle="Moments from our journey towards a sustainable future."
             />
 
-            <Section>
+            <Section subtitle="Photos and videos documenting workshops, outreach, and field activities.">
                 <GalleryGrid items={mediaItems} />
             </Section>
         </>

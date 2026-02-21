@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
+import { PillButton, Surface } from './elements';
 
 // Helper component to play video using Blob URL to mitigate IDM popups
 function SafeVideoPlayer({ src, className }) {
@@ -9,22 +10,26 @@ function SafeVideoPlayer({ src, className }) {
 
     useEffect(() => {
         let active = true;
-        setLoading(true);
+        let objectUrl = null;
 
         fetch(src)
             .then(res => res.blob())
             .then(blob => {
+                objectUrl = URL.createObjectURL(blob);
                 if (active) {
-                    const url = URL.createObjectURL(blob);
-                    setBlobUrl(url);
+                    setBlobUrl(objectUrl);
                     setLoading(false);
+                } else {
+                    URL.revokeObjectURL(objectUrl);
                 }
             })
-            .catch(() => setLoading(false));
+            .catch(() => {
+                if (active) setLoading(false);
+            });
 
         return () => {
             active = false;
-            if (blobUrl) URL.revokeObjectURL(blobUrl);
+            if (objectUrl) URL.revokeObjectURL(objectUrl);
         };
     }, [src]);
 
@@ -65,8 +70,8 @@ export default function GalleryGrid({ items }) {
         const handleKeyDown = (e) => {
             if (e.key === 'Escape') closeModal();
         };
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
+        globalThis.addEventListener('keydown', handleKeyDown);
+        return () => globalThis.removeEventListener('keydown', handleKeyDown);
     }, []);
 
     // Handle hover play for grid videos
@@ -84,7 +89,11 @@ export default function GalleryGrid({ items }) {
     };
 
     if (!items || items.length === 0) {
-        return <p className="text-center text-gray-500 py-12">No media found.</p>;
+        return (
+            <Surface variant="muted" className="mx-auto max-w-3xl text-center text-gray-500">
+                No media found.
+            </Surface>
+        );
     }
 
     return (
@@ -92,25 +101,24 @@ export default function GalleryGrid({ items }) {
             {/* Filter Tabs */}
             <div className="flex justify-center gap-2 mb-12">
                 {['all', 'image', 'video'].map((type) => (
-                    <button
+                    <PillButton
                         key={type}
+                        active={filter === type}
                         onClick={() => setFilter(type)}
-                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${filter === type
-                            ? 'bg-black text-white shadow-lg scale-105'
-                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                            }`}
                     >
                         {type.charAt(0).toUpperCase() + type.slice(1) + (type === 'all' ? '' : 's')}
-                    </button>
+                    </PillButton>
                 ))}
             </div>
 
             {/* Masonry Grid */}
             <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 space-y-6">
                 {filteredItems.map((item, index) => (
-                    <div
+                    <Surface
                         key={`${item.src}-${index}`}
-                        className="break-inside-avoid relative group overflow-hidden rounded-2xl bg-gray-100 cursor-zoom-in"
+                        variant="muted"
+                        padding="none"
+                        className="break-inside-avoid relative group overflow-hidden cursor-zoom-in"
                         onClick={() => setSelectedItem(item)}
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
@@ -152,7 +160,7 @@ export default function GalleryGrid({ items }) {
                                 </p>
                             </div>
                         )}
-                    </div>
+                    </Surface>
                 ))}
             </div>
 

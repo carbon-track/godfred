@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import content from '@/content/en.json';
@@ -20,11 +19,6 @@ export default function Header() {
     const { nav } = content;
     const pathname = usePathname();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -90,15 +84,15 @@ export default function Header() {
             </div>
 
             {/* Mobile Menu Overlay */}
-            {mounted && createPortal(
-                <div
+            {
+                <dialog
+                    open={mobileMenuOpen}
                     className={`relative z-[100] md:hidden transition-[visibility] duration-0 ${mobileMenuOpen ? 'visible delay-0' : 'invisible delay-300'}`}
-                    role="dialog"
-                    aria-modal="true"
-                    aria-hidden={!mobileMenuOpen}
                 >
                     {/* Backdrop */}
-                    <div
+                    <button
+                        type="button"
+                        aria-label="Close menu backdrop"
                         className={`fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
                         onClick={() => setMobileMenuOpen(false)}
                     />
@@ -148,9 +142,8 @@ export default function Header() {
                             </div>
                         </div>
                     </div>
-                </div>,
-                document.body
-            )}
+                </dialog>
+            }
         </header>
     );
 }
