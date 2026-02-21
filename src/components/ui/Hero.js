@@ -6,8 +6,8 @@ export default function Hero({ title, subtitle }) {
         <section className="relative overflow-hidden bg-gradient-soft pt-16 pb-24 lg:pt-28 lg:pb-32">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.18),transparent_45%)]" />
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="grid grid-cols-1 gap-y-16 gap-x-8 lg:grid-cols-2 lg:items-center">
-                    <div className="max-w-2xl text-left">
+                <div className="grid grid-cols-1 gap-y-16 gap-x-8 lg:grid-cols-[minmax(0,1fr)_minmax(24rem,34rem)] lg:items-center">
+                    <div className="max-w-2xl min-w-0 text-left">
                         <p className="mb-4 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700">
                             Sustainable Green Future Foundation
                         </p>
@@ -27,11 +27,11 @@ export default function Hero({ title, subtitle }) {
                         </div>
                     </div>
                     {/* Featured Image */}
-                    <div className="relative lg:ml-auto">
+                    <div className="relative w-full lg:justify-self-end">
                         <Surface
                             variant="default"
                             padding="none"
-                            className="relative aspect-[4/3] w-full max-w-lg overflow-hidden bg-gray-100 shadow-2xl ring-1 ring-gray-900/10 sm:aspect-[3/2] lg:aspect-[4/3]"
+                            className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100 shadow-2xl ring-1 ring-gray-900/10 sm:aspect-[3/2] lg:aspect-[4/3]"
                         >
                             <img
                                 src="/media/photo_2025-04-10_05-20-44.jpg"
