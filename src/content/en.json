@@ -43,32 +43,32 @@
         "stats": [
             {
                 "label": "Community Sessions",
-                "value": "40+"
+                "value": "0"
             },
             {
                 "label": "Youth Participants",
-                "value": "1,200+"
+                "value": "0"
             },
             {
                 "label": "Partner Institutions",
-                "value": "18"
+                "value": "0"
             },
             {
                 "label": "Cities Reached",
-                "value": "12"
+                "value": "0"
             }
         ],
         "focus": [
-            "Practical climate literacy for students and community groups.",
-            "Hands-on circular economy workshops and reuse campaigns.",
-            "Leadership training for youth-led green initiatives."
+            "Practical climate literacy for students and community groups. Please update, for reference only.",
+            "Hands-on circular economy workshops and reuse campaigns. Please update, for reference only.",
+            "Leadership training for youth-led green initiatives. Please update, for reference only."
         ],
         "featured": {
-            "title": "What is happening now",
+            "title": "What is happening now - Please update, for reference only.",
             "items": [
-                "Monthly school eco-club coaching sessions.",
-                "Neighborhood clean-up and waste sorting drives.",
-                "Mentorship for young climate advocates and volunteers."
+                "Monthly school eco-club coaching sessions. Please update, for reference only.",
+                "Neighborhood clean-up and waste sorting drives. Please update, for reference only.",
+                "Mentorship for young climate advocates and volunteers. Please update, for reference only."
             ]
         }
     },
@@ -107,52 +107,52 @@
             {
                 "title": "Environmental & Climate Education",
                 "description": "Comprehensive education initiatives designed to raise awareness about climate change and environmental protection.",
-                "outcome": "Builds foundational climate knowledge and everyday sustainable habits."
+                "outcome": "Builds foundational climate knowledge and everyday sustainable habits. Please update, for reference only."
             },
             {
                 "title": "Youth Empowerment & Leadership",
                 "description": "Training programs to develop the next generation of environmental leaders and advocates.",
-                "outcome": "Equips youth with confidence, facilitation skills, and project leadership."
+                "outcome": "Equips youth with confidence, facilitation skills, and project leadership. Please update, for reference only."
             },
             {
                 "title": "Circular Economy Awareness",
                 "description": "Workshops and campaigns focusing on the principles of a circular economy to reduce waste.",
-                "outcome": "Promotes repair, reuse, and resource-efficient community systems."
+                "outcome": "Promotes repair, reuse, and resource-efficient community systems. Please update, for reference only."
             },
             {
                 "title": "Community Sustainability Advocacy",
                 "description": "Grassroots advocacy to implement sustainable practices at the local community level.",
-                "outcome": "Strengthens local ownership of green policy and behavior change."
+                "outcome": "Strengthens local ownership of green policy and behavior change. Please update, for reference only."
             },
             {
                 "title": "Waste Reduction Initiatives",
                 "description": "Practical projects aimed at responsible waste management and environmental responsibility.",
-                "outcome": "Improves sorting, disposal awareness, and cleaner public spaces."
+                "outcome": "Improves sorting, disposal awareness, and cleaner public spaces. Please update, for reference only."
             }
         ],
-        "cta": "Interested in co-designing a program in your school or district? Let’s collaborate."
+        "cta": "Interested in co-designing a program in your school or district? Let’s collaborate. Please update, for reference only."
     },
     "impact": {
         "title": "Our Impact",
-        "content": "SGFF has made significant strides in education and awareness. By engaging youth and communities, we are driving a cultural shift towards sustainability. Following our registration as a national non-profit, our scope has expanded to influence environmental practices across Ghana, fostering a generation that is conscious of their ecological footprint.",
+        "content": "SGFF has made significant strides in education and awareness. By engaging youth and communities, we are driving a cultural shift towards sustainability. Following our registration as a national non-profit, our scope has expanded to influence environmental practices across Ghana, fostering a generation that is conscious of their ecological footprint. Please update, for reference only.",
         "metrics": [
             {
                 "label": "Awareness events",
-                "value": "75+"
+                "value": "0"
             },
             {
                 "label": "Youth leaders trained",
-                "value": "300+"
+                "value": "0"
             },
             {
                 "label": "Volunteer hours",
-                "value": "2,400+"
+                "value": "0"
             }
         ],
         "stories": [
-            "School clubs now run peer-led recycling education sessions.",
-            "Community members report improved understanding of waste separation.",
-            "Partners increasingly request recurring sustainability workshops."
+            "School clubs now run peer-led recycling education sessions. Please update, for reference only.",
+            "Community members report improved understanding of waste separation. Please update, for reference only.",
+            "Partners increasingly request recurring sustainability workshops. Please update, for reference only."
         ]
     },
     "learnings": {
@@ -174,9 +174,9 @@
             ]
         },
         "nextSteps": [
-            "Expand mentorship networks to support youth-led micro-projects.",
-            "Develop multilingual climate education resources.",
-            "Increase cross-sector partnerships for long-term scale."
+            "Expand mentorship networks to support youth-led micro-projects. Please update, for reference only.",
+            "Develop multilingual climate education resources. Please update, for reference only.",
+            "Increase cross-sector partnerships for long-term scale. Please update, for reference only."
         ]
     },
     "getInvolved": {
@@ -186,15 +186,15 @@
         "ways": [
             {
                 "title": "Volunteer",
-                "description": "Support events, youth mentoring, and local campaigns."
+                "description": "Support events, youth mentoring, and local campaigns. Please update, for reference only."
             },
             {
                 "title": "Partner",
-                "description": "Co-create educational programs with schools and communities."
+                "description": "Co-create educational programs with schools and communities. Please update, for reference only."
             },
             {
                 "title": "Sponsor",
-                "description": "Fund scalable climate and circular economy initiatives."
+                "description": "Fund scalable climate and circular economy initiatives. Please update, for reference only."
             }
         ]
     },
@@ -212,7 +212,8 @@
             "city": "Kumasi",
             "country": "Ghana"
         },
-        "hours": "Mon - Fri, 9:00 AM - 5:00 PM (GMT)",
-        "note": "We usually respond within 1-2 business days."
+        "hours": "Mon - Fri, 9:00 AM - 5:00 PM (GMT). Please update, for reference only.",
+        "note": "We usually respond within 1-2 business days. Please update, for reference only."
     }
 }
+
