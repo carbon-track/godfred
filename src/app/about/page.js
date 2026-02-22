@@ -62,7 +62,7 @@ export default function About() {
                         >
                             Mr. Godfred Owusu
                         </a>
-                        , with support from Mr. Francis Amoako, Mr. Felix Owusu, and Mr. Jeff Addo Donkor. Initially starting as the &apos;Youth Planner and Environment Association–KNUST&apos;, the organization collaborated with Dr. Stephen Takyi under the Ghana Association of Student Planners. It transitioned to the &apos;Sustainable Green Future Club&apos; before officially registering in mid-2025 as a national non-profit: Sustainable Green Future Foundation (SGFF).
+                        , with support from Mr. Francis Amoako, Mr. Felix Owusu, and Mr. Jeff Addo Donkor. Initially starting as the &apos;Youth Planner and Environment Association–KNUST&apos;, the organization collaborated with Dr. Stephen Takyi under the Ghana Association of Student Planners (GASP). It transitioned to the &apos;Sustainable Green Future Club&apos; before officially registering in mid-2025 as a national non-profit: Sustainable Green Future Foundation (SGFF).
                     </p>
                 </Card>
             </Section>
