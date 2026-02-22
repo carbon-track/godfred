@@ -48,20 +48,20 @@
         ],
         "stats": [
             {
-                "label": "Community Sessions",
-                "value": "0"
+                "label": "Founded",
+                "value": "2023"
             },
             {
-                "label": "Youth Participants",
-                "value": "0"
+                "label": "Nationally Registered",
+                "value": "2025"
             },
             {
-                "label": "Partner Institutions",
-                "value": "0"
+                "label": "Core Pillars",
+                "value": "4"
             },
             {
-                "label": "Cities Reached",
-                "value": "0"
+                "label": "Program Areas",
+                "value": "5"
             }
         ],
         "focus": [
@@ -143,16 +143,16 @@
         "content": "SGFF has made significant strides in education and awareness. By engaging youth and communities, we are driving a cultural shift towards sustainability. Following our registration as a national non-profit, our scope has expanded to influence environmental practices across Ghana, fostering a generation that is conscious of their ecological footprint. Please update, for reference only.",
         "metrics": [
             {
-                "label": "Awareness events",
-                "value": "0"
+                "label": "Active Since",
+                "value": "2023"
             },
             {
-                "label": "Youth leaders trained",
-                "value": "0"
+                "label": "Program Areas",
+                "value": "5"
             },
             {
-                "label": "Volunteer hours",
-                "value": "0"
+                "label": "Geographic Scope",
+                "value": "National"
             }
         ],
         "stories": [
