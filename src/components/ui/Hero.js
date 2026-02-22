@@ -20,7 +20,9 @@ function pickRandomHeroImage() {
     return HERO_IMAGES[index];
 }
 
-export default function Hero({ title, subtitle }) {
+const DEFAULT_BADGE = 'Sustainable Green Future Foundation';
+
+export default function Hero({ title, subtitle, hideCtas = false, badge }) {
     const [heroImage, setHeroImage] = useState(FALLBACK_HERO_IMAGE);
 
     useEffect(() => {
@@ -40,7 +42,7 @@ export default function Hero({ title, subtitle }) {
                 <div className="grid grid-cols-1 gap-y-16 gap-x-8 lg:grid-cols-[minmax(0,1fr)_minmax(24rem,34rem)] lg:items-center">
                     <div className="max-w-2xl min-w-0 text-left">
                         <p className="mb-4 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700">
-                            Sustainable Green Future Foundation
+                            {badge ?? DEFAULT_BADGE}
                         </p>
                         <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl text-balance">
                             {title}
@@ -48,14 +50,16 @@ export default function Hero({ title, subtitle }) {
                         <p className="mt-6 text-lg leading-8 text-gray-600 text-balance">
                             {subtitle}
                         </p>
-                        <div className="mt-10 flex items-center gap-x-6">
-                            <ButtonLink href="/get-involved" variant="primary">
-                                Get Involved
-                            </ButtonLink>
-                            <ButtonLink href="/about" variant="ghost" className="px-0 py-0">
-                                Learn more <span aria-hidden="true">→</span>
-                            </ButtonLink>
-                        </div>
+                        {!hideCtas && (
+                            <div className="mt-10 flex items-center gap-x-6">
+                                <ButtonLink href="/get-involved" variant="primary">
+                                    Get Involved
+                                </ButtonLink>
+                                <ButtonLink href="/about" variant="ghost" className="px-0 py-0">
+                                    Learn more <span aria-hidden="true">→</span>
+                                </ButtonLink>
+                            </div>
+                        )}
                     </div>
                     {/* Featured Image */}
                     <div className="relative w-full lg:justify-self-end">

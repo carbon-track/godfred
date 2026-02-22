@@ -54,13 +54,12 @@ function SafeVideoPlayer({ src, className }) {
 
 export default function GalleryGrid({ items }) {
     const [selectedItem, setSelectedItem] = useState(null);
-    const [filter, setFilter] = useState('all');
+    const hasImages = items?.some(item => item.type === 'image');
+    const hasVideos = items?.some(item => item.type === 'video');
+    const [filter, setFilter] = useState(hasImages ? 'image' : 'video');
 
     // Filter items based on selection
-    const filteredItems = items?.filter(item => {
-        if (filter === 'all') return true;
-        return item.type === filter;
-    });
+    const filteredItems = items?.filter(item => item.type === filter);
 
     // Handle closing modal
     const closeModal = () => setSelectedItem(null);
@@ -100,28 +99,40 @@ export default function GalleryGrid({ items }) {
         <div>
             {/* Filter Tabs */}
             <div className="flex justify-center gap-2 mb-12">
-                {['all', 'image', 'video'].map((type) => (
+                {hasImages && (
                     <PillButton
-                        key={type}
-                        active={filter === type}
-                        onClick={() => setFilter(type)}
+                        active={filter === 'image'}
+                        onClick={() => setFilter('image')}
                     >
-                        {type.charAt(0).toUpperCase() + type.slice(1) + (type === 'all' ? '' : 's')}
+                        Photos
                     </PillButton>
-                ))}
+                )}
+                {hasVideos && (
+                    <PillButton
+                        active={filter === 'video'}
+                        onClick={() => setFilter('video')}
+                    >
+                        Videos
+                    </PillButton>
+                )}
             </div>
 
             {/* Masonry Grid */}
-            <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 space-y-6">
+            {filteredItems.length === 0 ? (
+                <Surface variant="muted" className="mx-auto max-w-md text-center text-gray-500 py-12">
+                    No {filter === 'image' ? 'photos' : 'videos'} to display.
+                </Surface>
+            ) : (
+            <div className={`gap-6 space-y-6 ${filter === 'video' ? 'w-full max-w-7xl mx-auto space-y-10' : 'columns-1 sm:columns-2 lg:columns-3'}`}>
                 {filteredItems.map((item, index) => (
                     <Surface
                         key={`${item.src}-${index}`}
                         variant="muted"
                         padding="none"
-                        className="break-inside-avoid relative group overflow-hidden cursor-zoom-in"
+                        className={`relative overflow-hidden !rounded-lg ${filter === 'video' ? 'cursor-default w-full' : 'break-inside-avoid group cursor-zoom-in'}`}
                         onClick={() => setSelectedItem(item)}
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
+                        onMouseEnter={filter === 'video' ? undefined : handleMouseEnter}
+                        onMouseLeave={filter === 'video' ? undefined : handleMouseLeave}
                     >
                         {item.type === 'image' ? (
                             <img
@@ -131,23 +142,15 @@ export default function GalleryGrid({ items }) {
                                 className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                         ) : (
-                            <div className="relative">
-                                {/* Grid preview: Video thumbnail with hover-to-play */}
+                            <div className="relative aspect-video w-full" onClick={(e) => e.stopPropagation()}>
                                 <video
-                                    muted
-                                    loop
+                                    controls
                                     playsInline
                                     preload="metadata"
-                                    onLoadedMetadata={(e) => { e.target.currentTime = 0.1; }}
-                                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
+                                    className="absolute inset-0 w-full h-full object-cover"
                                 >
                                     <source src={item.src} />
                                 </video>
-                                <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-transparent transition-colors pointer-events-none">
-                                    <div className="w-12 h-12 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-0 transition-transform duration-300">
-                                        <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-white border-b-8 border-b-transparent ml-1" />
-                                    </div>
-                                </div>
                             </div>
                         )}
 
@@ -163,6 +166,7 @@ export default function GalleryGrid({ items }) {
                     </Surface>
                 ))}
             </div>
+            )}
 
             {/* Lightbox Modal */}
             {selectedItem && (

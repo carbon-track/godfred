@@ -9,6 +9,7 @@ export default function Gallery() {
             <Hero
                 title="Our Gallery"
                 subtitle="Moments from our journey towards a sustainable future."
+                hideCtas
             />
 
             <Section subtitle="Photos and videos documenting workshops, outreach, and field activities.">

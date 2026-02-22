@@ -13,6 +13,7 @@ export default function Contact() {
             <Hero
                 title={contact.title}
                 subtitle="We'd love to hear from you"
+                hideCtas
             />
 
             <Section>
@@ -36,6 +37,19 @@ export default function Contact() {
                             <p className="text-gray-600">{contact.address.street}</p>
                             <p className="text-gray-600">{contact.address.area}</p>
                             <p className="font-medium text-gray-800">{contact.address.city}, {contact.address.country}</p>
+                            <a
+                                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                                    `${contact.address.digitalAddress} ${contact.address.street} ${contact.address.area} ${contact.address.city} ${contact.address.country}`
+                                )}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 mt-3 text-primary hover:text-primary-hover font-medium transition-colors"
+                            >
+                                View on map
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
                         </address>
                     </Card>
                 </CardGrid>

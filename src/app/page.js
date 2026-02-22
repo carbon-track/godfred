@@ -1,8 +1,10 @@
+import Link from 'next/link';
 import Hero from '@/components/ui/Hero';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import Carousel from '@/components/ui/Carousel';
-import { CardGrid, MetricCard } from '@/components/ui/elements';
+import { ActionCard, CardGrid } from '@/components/ui/elements';
+import { AnimatedMetricCard } from '@/components/ui/AnimatedMetricCard';
 import content from '@/content/en.json';
 import mediaItems from '@/content/media.json';
 
@@ -21,6 +23,7 @@ export default function Home() {
       <Hero
         title={home.hero.title}
         subtitle={home.hero.subtitle}
+        badge="Nonprofit Founded 2023"
       />
 
       {/* Intro Section - Clean White */}
@@ -30,10 +33,16 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* Stats: replaced unverified numbers with verifiable facts. Backup: Community Sessions 40+, Youth Participants 1,200+, Partner Institutions 18, Cities Reached 12 */}
       <Section className="pt-0">
         <CardGrid columns="four" className="gap-4">
-          {home.stats.map((item) => (
-            <MetricCard key={item.label} value={item.value} label={item.label} />
+          {home.stats.map((item, index) => (
+            <AnimatedMetricCard
+              key={item.label}
+              value={item.value}
+              label={item.label}
+              delay={index * 100}
+            />
           ))}
         </CardGrid>
       </Section>
@@ -82,6 +91,24 @@ export default function Home() {
             />
           ))}
         </CardGrid>
+      </Section>
+
+      <Section className="bg-white">
+        <ActionCard
+          variant="contrast"
+          title="Join Our Mission"
+          description="Get involved in our programs, volunteer, or partner with us to build a sustainable green future."
+          actionHref="/get-involved"
+          actionLabel="Get Involved"
+        />
+        <div className="mt-6 text-center">
+          <Link
+            href="/contact"
+            className="text-base font-medium text-gray-600 hover:text-primary transition-colors"
+          >
+            Or contact us directly →
+          </Link>
+        </div>
       </Section>
     </>
   );

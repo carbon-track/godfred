@@ -11,6 +11,7 @@ export default function Learnings() {
             <Hero
                 title={learnings.title}
                 subtitle="Reflecting on our journey"
+                hideCtas
             />
 
             <Section title={learnings.challenges.title} className="bg-gray-50">

@@ -89,3 +89,28 @@
     animation: none;
   }
 }
+
+/* Slot machine reel - numbers roll down like lottery/game */
+@keyframes slotReelSpin {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(var(--slot-end, 0));
+  }
+}
+
+.slot-reel-strip {
+  animation: slotReelSpin 2s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+}
+
+.slot-reel-strip.no-delay {
+  animation-delay: 0ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slot-reel-strip {
+    animation: none;
+    transform: translateY(var(--slot-end, 0));
+  }
+}
