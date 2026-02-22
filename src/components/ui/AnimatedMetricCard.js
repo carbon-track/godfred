@@ -23,6 +23,7 @@ function SlotReelDigit({ digit, delay, isActive }) {
                 style={{
                     '--slot-end': `${endTranslate}rem`,
                     animationDelay: isActive ? `${delay}ms` : '0ms',
+                    transform: isActive ? `translateY(${endTranslate}rem)` : 'translateY(0)',
                 }}
             >
                 {Array.from({ length: (SPINS + 1) * 10 }, (_, i) => i % 10).map((d, i) => (
@@ -59,27 +60,47 @@ export function AnimatedMetricCard({ value, label, className = '', delay = 0 }) 
     const [hasAnimated, setHasAnimated] = useState(false);
 
     useEffect(() => {
-        if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const activate = () => {
             setIsInView(true);
             setHasAnimated(true);
+        };
+
+        if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            activate();
             return;
         }
 
         const el = ref.current;
-        if (!el) return;
+        if (!el || hasAnimated) return;
+
+        const isElementVisible = () => {
+            const rect = el.getBoundingClientRect();
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            return rect.top < viewportHeight * 0.95 && rect.bottom > viewportHeight * 0.05;
+        };
+
+        if (isElementVisible()) {
+            const frame = window.requestAnimationFrame(activate);
+            return () => window.cancelAnimationFrame(frame);
+        }
 
         const observer = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting && !hasAnimated) {
-                    setIsInView(true);
-                    setHasAnimated(true);
+                if (entry.isIntersecting) {
+                    activate();
                 }
             },
-            { threshold: 0.2, rootMargin: '0px 0px -50px 0px' }
+            { threshold: 0.05, rootMargin: '0px 0px -10% 0px' }
         );
 
         observer.observe(el);
-        return () => observer.disconnect();
+
+        const fallbackTimer = window.setTimeout(activate, 1200);
+
+        return () => {
+            observer.disconnect();
+            window.clearTimeout(fallbackTimer);
+        };
     }, [hasAnimated]);
 
     const chars = String(value).split('');

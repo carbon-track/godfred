@@ -40,12 +40,6 @@
                 "description": "Working together for a greener future."
             }
         ],
-        "_stats_backup_unverified": [
-            { "label": "Community Sessions", "value": "40+" },
-            { "label": "Youth Participants", "value": "1,200+" },
-            { "label": "Partner Institutions", "value": "18" },
-            { "label": "Cities Reached", "value": "12" }
-        ],
         "stats": [
             {
                 "label": "Founded",
