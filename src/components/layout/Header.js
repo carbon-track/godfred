@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import content from '@/content/en.json';
@@ -18,15 +19,36 @@ const NAV_LINKS = [
 export default function Header() {
     const { nav } = content;
     const pathname = usePathname();
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const currentPath = pathname ?? '';
+    const [mobileMenuPath, setMobileMenuPath] = useState(null);
+    const mobileMenuOpen = mobileMenuPath !== null && mobileMenuPath === currentPath;
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [pathname]);
 
+    useEffect(() => {
+        if (typeof document === 'undefined') return undefined;
+
+        const originalOverflow = document.body.style.overflow;
+        if (mobileMenuOpen) document.body.style.overflow = 'hidden';
+
+        return () => {
+            document.body.style.overflow = originalOverflow;
+        };
+    }, [mobileMenuOpen]);
+
     const isActive = (href) => {
         if (href === '/') return pathname === '/';
         return pathname === href || pathname?.startsWith(href + '/');
+    };
+
+    const openMobileMenu = () => {
+        setMobileMenuPath(currentPath);
+    };
+
+    const closeMobileMenu = () => {
+        setMobileMenuPath(null);
     };
 
     return (
@@ -39,7 +61,7 @@ export default function Header() {
                 </div>
 
                 {/* Desktop Nav */}
-                <nav className="hidden md:block">
+                <nav className="hidden xl:block">
                     <ul className="flex items-center gap-8 text-sm font-medium">
                         {NAV_LINKS.map(({ href, key }) => (
                             <li key={key}>
@@ -69,11 +91,13 @@ export default function Header() {
                 </nav>
 
                 {/* Mobile Menu Button */}
-                <div className="flex md:hidden">
+                <div className="flex xl:hidden">
                     <button
                         type="button"
                         className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 hover:text-primary transition-colors"
-                        onClick={() => setMobileMenuOpen(true)}
+                        onClick={openMobileMenu}
+                        aria-expanded={mobileMenuOpen}
+                        aria-controls="mobile-navigation"
                     >
                         <span className="sr-only">Open main menu</span>
                         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
@@ -84,31 +108,35 @@ export default function Header() {
             </div>
 
             {/* Mobile Menu Overlay */}
-            {
-                <dialog
-                    open={mobileMenuOpen}
-                    className={`relative z-[100] md:hidden transition-[visibility] duration-0 ${mobileMenuOpen ? 'visible delay-0' : 'invisible delay-300'}`}
+            {typeof document !== 'undefined' && createPortal(
+                <div
+                    className={`fixed inset-0 z-[100] xl:hidden transition-[visibility] duration-0 ${mobileMenuOpen ? 'visible delay-0' : 'invisible delay-300 pointer-events-none'}`}
+                    aria-hidden={!mobileMenuOpen}
                 >
                     {/* Backdrop */}
                     <button
                         type="button"
                         aria-label="Close menu backdrop"
-                        className={`fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
-                        onClick={() => setMobileMenuOpen(false)}
+                        className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
+                        onClick={closeMobileMenu}
                     />
 
                     {/* Panel */}
                     <div
-                        className={`fixed inset-y-0 right-0 z-[100] w-5/6 max-w-xs overflow-y-auto bg-white px-6 py-6 shadow-2xl ring-1 ring-gray-900/10 border-l border-gray-100 transition-transform duration-300 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                        id="mobile-navigation"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label="Mobile navigation"
+                        className={`absolute inset-y-0 right-0 z-[101] w-[min(85vw,20rem)] overflow-y-auto bg-white px-6 py-6 shadow-2xl ring-1 ring-gray-900/10 border-l border-gray-100 transition-transform duration-300 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
                     >
                         <div className="flex items-center justify-between">
-                            <Link href="/" className="-m-1.5 p-1.5 text-2xl font-bold tracking-tight text-gray-900 hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)} title="Sustainable Green Future Foundation">
+                            <Link href="/" className="-m-1.5 p-1.5 text-2xl font-bold tracking-tight text-gray-900 hover:text-primary transition-colors" onClick={closeMobileMenu} title="Sustainable Green Future Foundation">
                                 SGFF
                             </Link>
                             <button
                                 type="button"
                                 className="-m-2.5 rounded-md p-2.5 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
-                                onClick={() => setMobileMenuOpen(false)}
+                                onClick={closeMobileMenu}
                             >
                                 <span className="sr-only">Close menu</span>
                                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
@@ -123,7 +151,7 @@ export default function Header() {
                                         <Link
                                             key={key}
                                             href={href}
-                                            onClick={() => setMobileMenuOpen(false)}
+                                            onClick={closeMobileMenu}
                                             className={`-mx-3 block rounded-lg px-3 py-2 text-base leading-7 transition-colors hover:bg-gray-50 hover:text-primary ${isActive(href) ? 'font-bold text-primary' : 'font-semibold text-gray-900'}`}
                                         >
                                             {nav[key]}
@@ -133,7 +161,7 @@ export default function Header() {
                                 <div className="py-6">
                                     <Link
                                         href="/contact"
-                                        onClick={() => setMobileMenuOpen(false)}
+                                        onClick={closeMobileMenu}
                                         className={`-mx-3 block rounded-lg px-3 py-2.5 text-base leading-7 transition-colors hover:bg-gray-50 ${isActive('/contact') ? 'font-bold text-primary' : 'font-semibold text-gray-900'}`}
                                     >
                                         {nav.contact}
@@ -142,8 +170,9 @@ export default function Header() {
                             </div>
                         </div>
                     </div>
-                </dialog>
-            }
+                </div>,
+                document.body
+            )}
         </header>
     );
 }
